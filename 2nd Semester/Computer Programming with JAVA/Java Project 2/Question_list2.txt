@@ -1,0 +1,72 @@
+QUESTION_LIST
+{
+	QUESTION
+	{
+		TYPE MC
+		CODE 1002
+		DECSR "Which expression is greater than 100?"
+		ANSWERS "105,90+11,110-11,50+51"
+		CORRECT ANSWERS "1,2,4"
+	}
+	QUESTION
+	{
+		TYPE WORD
+		CODE 2002
+		DECSR "37+37="
+		WORD "74"
+	}
+	QUESTION
+	{
+		TYPE FILL
+		CODE 3001
+		DECSR "The sum of the numbers ? and ? is ?."
+		UNORDERED WORDS "10,20,10"
+		ORDERED WORDS "10,10,20"
+	}
+	QUESTION
+	{
+		TYPE FILL
+		CODE 3002
+		DECSR "If a class X is ? of  class Y, then the class Y is ? of class X."
+		UNORDERED WORDS "descendant,ancestor"
+		ORDERED WORDS "descendant,ancestor"
+	}
+	QUESTION
+	{
+		TYPE FILL
+		CODE 3003
+		DECSR "a) 58 + 12 = ?     b) 30 * ? = 180         c) 55/5 = ?"
+		UNORDERED WORDS "6,11,70"
+		ORDERED WORDS "70,6,11"
+	}
+	QUESTION
+	{
+		TYPE WORD
+		CODE 2001
+		DECSR "How a class must be declared so that it does not have descendants?"
+		WORD "final"
+	}
+	QUESTION
+	{
+		TYPE WORD
+		CODE 2003
+		DECSR "The variables that are visible only in the class in which they belong are called:"
+		WORD "private"
+	}
+	QUESTION
+	{
+		TYPE MC
+		CODE 1001
+		DECSR "For what prices of x, y is verified the function y=5x+3?"
+		ANSWERS "x=1 y=8,x=1 y=9,x=0 y=3,x=0 y=0"
+		CORRECT ANSWERS "1,3"
+	}
+	QUESTION
+	{
+		TYPE MC
+		CODE 1003
+		DECSR "Which of the following expressions are evaluated as True?"
+		ANSWERS "(5>0) AND (-1>0),(3>5) OR (8>7),(9>8) AND (3>2),NOT(10>0)"
+		CORRECT ANSWERS "2,3"
+	}
+}

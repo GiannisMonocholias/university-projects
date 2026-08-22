@@ -1,0 +1,27 @@
+RATEDPERSON_LIST
+{
+	RATEDPERSON
+	{
+		CODE 2334
+		FIRSTNAME "Ioannis"
+		SURNAME "Monocholias"
+	}
+	RATEDPERSON
+	{
+		CODE 4231
+		FIRSTNAME "Vasileios"
+		SURNAME "Banos"
+	}
+	RATEDPERSON
+	{
+		CODE 5271
+		FIRSTNAME "Dimitrios"
+		SURNAME "Tassopoulos"
+	}
+	RATEDPERSON
+	{
+		CODE 7415
+		FIRSTNAME "Georgios"
+		SURNAME "Ioannou"
+	}
+}
