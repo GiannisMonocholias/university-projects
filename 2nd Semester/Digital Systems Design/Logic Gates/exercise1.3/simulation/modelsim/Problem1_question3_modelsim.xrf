@@ -1,0 +1,16 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/monoh/Desktop/project1_3230128_3230132_3230281/exercise1.3/Problem1_question3.bdf
+source_file = 1, C:/Users/monoh/Desktop/project1_3230128_3230132_3230281/exercise1.3/db/Problem1_question3.cbx.xml
+design_name = hard_block
+design_name = Problem1_question3
+instance = comp, \~QUARTUS_CREATED_GND~I\, ~QUARTUS_CREATED_GND~I, Problem1_question3, 1
+instance = comp, \f~output\, f~output, Problem1_question3, 1
+instance = comp, \x5~input\, x5~input, Problem1_question3, 1
+instance = comp, \x3~input\, x3~input, Problem1_question3, 1
+instance = comp, \x2~input\, x2~input, Problem1_question3, 1
+instance = comp, \x1~input\, x1~input, Problem1_question3, 1
+instance = comp, \x4~input\, x4~input, Problem1_question3, 1
+instance = comp, \inst~0\, inst~0, Problem1_question3, 1
+instance = comp, \inst~1\, inst~1, Problem1_question3, 1
+instance = comp, \~QUARTUS_CREATED_UNVM~\, ~QUARTUS_CREATED_UNVM~, Problem1_question3, 1
+instance = comp, \~QUARTUS_CREATED_ADC1~\, ~QUARTUS_CREATED_ADC1~, Problem1_question3, 1

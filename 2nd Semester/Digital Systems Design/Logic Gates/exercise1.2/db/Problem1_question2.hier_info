@@ -1,0 +1,50 @@
+|Problem1_question2
+x1 => and_3:Term3.in1
+x2 => and_3:Term3.in2
+x2 => and_4:Term4.in1
+x3 => and_4:Term4.in2
+x3 => and_2:Term1.in1
+x3 => and_3:Term3.in3
+x4 => and_4:Term4.in3
+x4 => and_2:Term2.in1
+x5 => and_4:Term4.in4
+x5 => and_2:Term1.in2
+x5 => and_2:Term2.in2
+f << or_4:Final_output.output_or_4
+
+
+|Problem1_question2|and_2:Term1
+in1 => output_and_2.IN0
+in2 => output_and_2.IN1
+output_and_2 <= output_and_2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Problem1_question2|and_2:Term2
+in1 => output_and_2.IN0
+in2 => output_and_2.IN1
+output_and_2 <= output_and_2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Problem1_question2|and_3:Term3
+in1 => output_and_3.IN0
+in2 => output_and_3.IN1
+in3 => output_and_3.IN1
+output_and_3 <= output_and_3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Problem1_question2|and_4:Term4
+in1 => output_and_4.IN0
+in2 => output_and_4.IN1
+in3 => output_and_4.IN1
+in4 => output_and_4.IN1
+output_and_4 <= output_and_4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Problem1_question2|or_4:Final_output
+in1 => output_or_4.IN0
+in2 => output_or_4.IN1
+in3 => output_or_4.IN1
+in4 => output_or_4.IN1
+output_or_4 <= output_or_4.DB_MAX_OUTPUT_PORT_TYPE
+
+

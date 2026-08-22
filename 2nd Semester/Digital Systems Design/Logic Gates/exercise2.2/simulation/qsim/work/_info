@@ -1,0 +1,143 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/monoh/Desktop/project1_3230128_3230132_3230281/exercise2.2/simulation/qsim
+Ehard_block
+Z1 w1713556885
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 hIbO9BBYYWGW_8lVV<F893
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 [A0e0UP4j3EDHZ:h0KOS^3
+R0
+Z8 8Problem2_question2.vho
+Z9 FProblem2_question2.vho
+l0
+L35
+Vhj[i;a0dD85B`o1JPT^cg2
+!s100 3A]XnMhF<;9mKUe5mn3aM1
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1713556886
+!i10b 1
+Z12 !s108 1713556886.000000
+Z13 !s90 -work|work|Problem2_question2.vho|
+Z14 !s107 Problem2_question2.vho|
+!i113 1
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 hj[i;a0dD85B`o1JPT^cg2
+l76
+L54
+Va5ClDYec`9chO`Ne0M1NL2
+!s100 >:Wi^nX[YiN=@>>JC6K_83
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eproblem2_question2
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R0
+R8
+R9
+l0
+L89
+V0?S6Q`zl3f_]a:nYa2ZT90
+!s100 dGh1IE3OIG;`hO@Vc>A@_0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 18 problem2_question2 0 22 0?S6Q`zl3f_]a:nYa2ZT90
+l140
+L107
+Vf<NCUEaXdiR5:;Ie7LGQ_0
+!s100 MM;@X7D5o<LAMO<N3D;`92
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eproblem2_question2_vhd_vec_tst
+Z17 w1713556883
+R5
+R6
+R0
+Z18 8Waveform.vwf.vht
+Z19 FWaveform.vwf.vht
+l0
+L32
+VG7<lFUozgOm[2]4Ufl2ll1
+!s100 4`QT6_W[1_`RgUZGVO2G<2
+R10
+32
+Z20 !s110 1713556887
+!i10b 1
+Z21 !s108 1713556887.000000
+Z22 !s90 -work|work|Waveform.vwf.vht|
+Z23 !s107 Waveform.vwf.vht|
+!i113 1
+R15
+R16
+Aproblem2_question2_arch
+R5
+R6
+DEx4 work 30 problem2_question2_vhd_vec_tst 0 22 G7<lFUozgOm[2]4Ufl2ll1
+l51
+L34
+V_HmoGWDA4lMFnJ[UAUam20
+!s100 2M]V2XhcJE6cg2k>4P>>M2
+R10
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R15
+R16

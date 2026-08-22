@@ -1,0 +1,1354 @@
+|Part2
+a[0] => Part1:U1.a
+a[1] => Part1:GEN:1:U2.a
+a[2] => Part1:GEN:2:U2.a
+a[3] => Part1:GEN:3:U2.a
+a[4] => Part1:GEN:4:U2.a
+a[5] => Part1:GEN:5:U2.a
+a[6] => Part1:GEN:6:U2.a
+a[7] => Part1:GEN:7:U2.a
+a[8] => Part1:GEN:8:U2.a
+a[9] => Part1:GEN:9:U2.a
+a[10] => Part1:GEN:10:U2.a
+a[11] => Part1:GEN:11:U2.a
+a[12] => Part1:GEN:12:U2.a
+a[13] => Part1:GEN:13:U2.a
+a[14] => Part1:GEN:14:U2.a
+a[15] => Part1:GEN:15:U2.a
+b[0] => Part1:U1.b
+b[1] => Part1:GEN:1:U2.b
+b[2] => Part1:GEN:2:U2.b
+b[3] => Part1:GEN:3:U2.b
+b[4] => Part1:GEN:4:U2.b
+b[5] => Part1:GEN:5:U2.b
+b[6] => Part1:GEN:6:U2.b
+b[7] => Part1:GEN:7:U2.b
+b[8] => Part1:GEN:8:U2.b
+b[9] => Part1:GEN:9:U2.b
+b[10] => Part1:GEN:10:U2.b
+b[11] => Part1:GEN:11:U2.b
+b[12] => Part1:GEN:12:U2.b
+b[13] => Part1:GEN:13:U2.b
+b[14] => Part1:GEN:14:U2.b
+b[15] => Part1:GEN:15:U2.b
+opcode[0] => control_circuit:U0.opcode[0]
+opcode[0] => Equal0.IN1
+opcode[0] => Equal1.IN2
+opcode[1] => control_circuit:U0.opcode[1]
+opcode[1] => Equal0.IN2
+opcode[1] => Equal1.IN1
+opcode[2] => control_circuit:U0.opcode[2]
+opcode[2] => Equal0.IN0
+opcode[2] => Equal1.IN0
+s[0] << Part1:U1.result
+s[1] << Part1:GEN:1:U2.result
+s[2] << Part1:GEN:2:U2.result
+s[3] << Part1:GEN:3:U2.result
+s[4] << Part1:GEN:4:U2.result
+s[5] << Part1:GEN:5:U2.result
+s[6] << Part1:GEN:6:U2.result
+s[7] << Part1:GEN:7:U2.result
+s[8] << Part1:GEN:8:U2.result
+s[9] << Part1:GEN:9:U2.result
+s[10] << Part1:GEN:10:U2.result
+s[11] << Part1:GEN:11:U2.result
+s[12] << Part1:GEN:12:U2.result
+s[13] << Part1:GEN:13:U2.result
+s[14] << Part1:GEN:14:U2.result
+s[15] << Part1:GEN:15:U2.result
+Overflow << Overflow.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|control_circuit:U0
+opcode[0] => Equal0.IN2
+opcode[0] => Equal1.IN2
+opcode[0] => Equal2.IN1
+opcode[0] => Equal3.IN2
+opcode[0] => Equal4.IN1
+opcode[0] => Equal5.IN2
+opcode[0] => Equal6.IN0
+opcode[1] => Equal0.IN1
+opcode[1] => Equal1.IN1
+opcode[1] => Equal2.IN2
+opcode[1] => Equal3.IN1
+opcode[1] => Equal4.IN0
+opcode[1] => Equal5.IN0
+opcode[1] => Equal6.IN2
+opcode[2] => Equal0.IN0
+opcode[2] => Equal1.IN0
+opcode[2] => Equal2.IN0
+opcode[2] => Equal3.IN0
+opcode[2] => Equal4.IN2
+opcode[2] => Equal5.IN1
+opcode[2] => Equal6.IN1
+operation[0] <= operation[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+operation[1] <= operation[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Ainvert <= Ainvert$latch.DB_MAX_OUTPUT_PORT_TYPE
+Binvert <= Binvert$latch.DB_MAX_OUTPUT_PORT_TYPE
+CarryIn <= CarryIn$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:U1|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:U1|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:1:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:1:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:2:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:2:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:3:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:3:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:4:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:4:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:5:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:5:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:6:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:6:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:7:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:7:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:8:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:8:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:9:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:9:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:10:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:10:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:11:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:11:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:12:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:12:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:13:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:13:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:14:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:14:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2
+operation[0] => mymux4_1:I6.s[0]
+operation[1] => mymux4_1:I6.s[1]
+CarryIn => fulladder:I4.CarryIn
+a => mymux2_1:I0.a
+a => mymux2_1:I0.b
+b => mymux2_1:I1.a
+b => mymux2_1:I1.b
+Ainvert => mymux2_1:I0.s
+Binvert => mymux2_1:I1.s
+result <= mymux4_1:I6.output_mux4_1
+CarryOut <= fulladder:I4.CarryOut
+
+
+|Part2|Part1:\GEN:15:U2|mymux2_1:I0
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|mymux2_1:I1
+a => output_mux2_1.DATAB
+b => output_mux2_1.DATAA
+s => output_mux2_1.OUTPUTSELECT
+output_mux2_1 <= output_mux2_1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|myand2:I2
+in1 => output_and2.IN0
+in2 => output_and2.IN1
+output_and2 <= output_and2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|myor2:I3
+in1 => output_or2.IN0
+in2 => output_or2.IN1
+output_or2 <= output_or2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|fulladder:I4
+CarryIn => CarryOut.IN0
+CarryIn => CarryOut.IN0
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+CarryIn => sum.IN1
+a => CarryOut.IN0
+a => CarryOut.IN1
+a => sum.IN0
+a => sum.IN0
+a => sum.IN0
+b => CarryOut.IN1
+b => CarryOut.IN1
+b => sum.IN1
+b => sum.IN1
+b => sum.IN1
+CarryOut <= CarryOut.DB_MAX_OUTPUT_PORT_TYPE
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|myxor2:I5
+a => output_xor2.IN0
+a => output_xor2.IN0
+b => output_xor2.IN1
+b => output_xor2.IN1
+output_xor2 <= output_xor2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Part2|Part1:\GEN:15:U2|mymux4_1:I6
+a => Mux0.IN0
+b => Mux0.IN1
+c => Mux0.IN2
+d => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+output_mux4_1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

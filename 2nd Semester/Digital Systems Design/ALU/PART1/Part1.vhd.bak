@@ -1,0 +1,11 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY myand2 IS 
+	PORT(in1,in2:IN std_logic;
+		outputand2 : OUT std_logic);
+END myand2;
+
+ARCHITECTURE func1 OF myand2 IS
+	outputand2<= in1 AND in2;
+END func1;
